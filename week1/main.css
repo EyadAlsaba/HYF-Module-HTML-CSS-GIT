@@ -21,6 +21,7 @@
     line-height: 1.8em;
     color: var(--green);
     scroll-behavior: smooth;
+    text-transform: uppercase;
 }
 @keyframes slid-in-right{
     0% {
@@ -134,7 +135,7 @@ table th{
   color: var(--black);
 }
 table td:hover{
-  font-weight: 60px;
+  font-weight: 500;
   cursor: text;
   color: var(--lightblue);
 }
