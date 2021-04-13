@@ -1,0 +1,263 @@
+/*GLOBAL USE*/
+
+@font-face {
+    font-family: 'Eyad'; 
+    src: url(./Fonts/Orbitron-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'arabic';
+    src: url(./Fonts/Arabic/Kufam-VariableFont_wght.ttf);
+}
+
+*,
+*::before,
+*::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Eyad'; 
+    font-size: 20px;
+    line-height: 1.8rem;
+}
+
+:root{
+    --black: rgb(13,17,23);
+    --lightblue: rgb(131, 193, 255);
+    --orang: rgb(250, 174, 74);
+    --green: rgb(230,255,237);
+}
+
+ul{
+    list-style: none;
+}
+
+p[dir="rtl"]{
+    font-family: 'arabic';
+}
+
+header h1{
+    font-size: 2rem;
+    margin: 5px;
+    padding: 15px;
+}
+
+h2{
+    font-size: 1.5rem;
+    margin: 5px;
+    padding: 10px;
+}
+
+h3{
+    font-size: 1rem;
+    margin: 5px;
+    padding: 10px;
+}
+
+/*ANIMATION SET UP*/
+
+@keyframes slid-in {
+    0% {
+        transform: translateY(-100%);
+      }
+    
+      100% {
+        transform: translateY(0%);
+      }
+  }
+
+@keyframes showup{
+    0%{
+        opacity: 0.5;
+    }
+
+    100%{
+        opacity: 1;
+
+    }
+}
+
+/*Added Footer with pseudo element*/
+
+main::after{
+    content: "Eyad Alsaba 2021";
+    text-align: center;
+    display: block;
+    background-color: var(--green);
+    color: var(--black);
+    border: 4px solid var(--black);
+    padding: 10px;
+    margin: 5px;
+    width: auto;
+    height: auto;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    word-spacing: 0.4rem;
+    text-transform: uppercase;
+    line-height: 2.2rem;
+}
+
+h1, section:first-child h2{
+    animation: slid-in 2s linear;
+}
+
+header h1, h2, h3{
+    color: var(--black);
+    background-color: var(--green);
+    border: 4px solid var(--black);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+}
+h3{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+li{
+    box-shadow: 0 8px 8px 0 rgb(3 3 3 / 20%), 0 12px 12px 0 rgb(3 3 3 / 20%);
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin: 15px 10px;
+}
+
+
+img{
+    opacity: 0.9;
+}
+p{
+    text-align: center;
+    padding: 5px;
+}
+
+/*MARGIN SETUP TO CENTER GRIDS AT THE SAME POINTS*/
+section:first-child ul{margin-left: 40px;margin-bottom: 40px;}
+section:last-child ul{margin: 40px;} 
+
+/*FLOATIN GRID*/
+
+#grid-floats > li{
+    float: left;
+    width: 23%; 
+    height: 720px;
+
+}
+#grid-floats li:nth-child(1){
+    width: 47.5%; 
+}
+
+
+#grid-floats li:nth-last-child(-n+3){
+    width: 31%;  
+}
+
+#grid-floats li > img{
+    float: left;
+    max-width: 100%;
+    height: auto;
+    padding: 5px;
+}
+
+#grid-floats li img::before,::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*FLEX BOX*/
+
+#grid-flex {
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#grid-flex > li{
+    flex-basis: 20%;
+    flex-shrink: 0;
+    flex-grow: 1;
+}
+#grid-flex li:nth-child(1){
+    flex-basis: 45%;
+}
+
+#grid-flex li > img{
+    width: 100%;
+    height: auto;
+}
+
+/*Hover effect to the elements*/
+
+li:hover{
+    box-shadow: 0 8px 8px 0 rgb(3 3 3 / 80%),0 10px 10px 0 rgb(3 3 3 / 20%);
+    transform: scale(1.02);
+    
+}
+li:hover > h3{
+    background-color: var(--black);
+    color:var(--green);
+    box-shadow: 0 8px 8px 0 rgb(3 3 3 / 20%),0 5px 5px 0 rgb(3 3 3 / 20%);
+
+}
+li:hover > img{
+    opacity:1;
+}
+
+/*MEDIA QUERY*/
+
+@media (max-width: 1024px) {
+    *{
+        font-size: 15px;
+    }
+    section:first-child ul{margin-bottom: 40px; margin-right: 30px;}
+
+    #grid-floats > li{
+        width: 30%;
+        margin: 10px;
+        height: 600px;
+    } 
+
+    #grid-floats li:nth-child(-n+2){
+        width: 46.1%;
+    }
+    #grid-floats li:nth-last-child(-n+3){
+        width: 30%;
+    }
+    
+    #grid-flex > li{
+        flex-basis: 30%;
+    }
+    #grid-flex li:nth-child(-n+2){
+        flex-basis: 40%;
+    }
+    li:hover > p{
+        font-weight: normal;
+    }
+    
+}
+
+@media (max-width: 600px){
+  
+    section:first-child ul{margin-left: 30px;}
+    #grid-floats > li,
+    #grid-floats li:nth-child(-n+2),
+    #grid-floats li:nth-last-child(-n+3)
+    {
+        float: none;
+        width: 92%;
+        margin: 25px auto;
+    }
+    #grid-flex{
+        display: block;
+    }
+    #grid-flex > li{
+        margin:25px auto;
+    }
+    li:hover{
+        box-shadow: none;
+        transform: none;
+        border: 1px solid #333;
+    }
+
+}

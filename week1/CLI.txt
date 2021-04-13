@@ -1,0 +1,14 @@
+How do I create a hidden file or folder? How do I display it in the CLI?
+We can use a (Touch) command with DOT . before the file name
+ex: Touch .test.txt 
+To display all files use command ls -a 
+
+How do I create multiple nested directories, like /c/Users/myusername/these/folders/are/just/for/fun?
+Command mkdir [-p] (refer to parent) allows us to create nested folders
+ex: mkdir -p hyf/test/js/css
+
+How do I append a message to a file, without a newline character?
+Command Echo -n (refer to newline) append new message at the same line
+ex: echo [-n]  [Argument] [>>] [file name]
+
+For more info use command --help [command name]
